@@ -104,5 +104,38 @@ public class Utils{
             return "Back";
         }
     }
+    
+     #region  位掩码工具
+    /// <summary>
+    /// 检查是否包含flag
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="flags">待检查的值</param>
+    /// <param name="flag">目标flag</param>
+    /// <returns></returns>
+    public static bool FlagIsSet<T>(T flags, T flag) where T : struct
+    {
+        int flagsValue = (int)(object)flags;
+        int flagValue = (int)(object)flag;
+
+        return (flagsValue & flagValue) != 0;
+    }
+
+    public static void FlagSet<T>(ref T flags, T flag) where T : struct
+    {
+        int flagsValue = (int)(object)flags;
+        int flagValue = (int)(object)flag;
+
+        flags = (T)(object)(flagsValue | flagValue);
+    }
+
+    public static void FlagUnset<T>(ref T flags, T flag) where T : struct
+    {
+        int flagsValue = (int)(object)flags;
+        int flagValue = (int)(object)flag;
+
+        flags = (T)(object)(flagsValue & (~flagValue));
+    }
+    #endregion
 
 }
