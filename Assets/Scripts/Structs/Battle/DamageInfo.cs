@@ -163,3 +163,14 @@ public enum DamageInfoTag{
     periodHeal = 11,    //间歇性治疗
     monkeyDamage = 9999    //这个类型的伤害在目前这个demo中没有意义，只是告诉你可以随意扩展，仅仅比string严肃些。
 }
+
+[Flags]
+public enum DamageInfoTagFlag
+{
+    directDamage = 1<<1,   //直接伤害
+    periodDamage = 1<<2,   //间歇性伤害
+    reflectDamage = 1<<3,  //反噬伤害
+    directHeal = 1 << 4,    //直接治疗
+    periodHeal = 1 << 5,    //间歇性治疗
+    monkeyDamage = 1 << 6    //这个类型的伤害在目前这个demo中没有意义，只是告诉你可以随意扩展，仅仅比string严肃些。
+}
